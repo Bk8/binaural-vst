@@ -4,12 +4,9 @@
 #include <memory>
 #include <map>
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "QuickHullWrapper.h"
 
 
-// forward declaration
-namespace tpp {
-	class Delaunay;
-}
 
 #define HRIR_LENGTH 200
 using HrirBuffer = std::array < std::array<float, HRIR_LENGTH>, 2 >;
@@ -28,6 +25,8 @@ private:
 	int getElvIndex(int elv);
 
 	std::map<int, std::array<HrirBuffer, 52>> hrirDict_;
-	ScopedPointer<tpp::Delaunay> triangulation_;
+    QuickHullTriangulation quickHull;
 	HrirBuffer hrir_;
+    std::vector<Point2D> points;
+    std::vector<Vector3<float>> points2;
 };

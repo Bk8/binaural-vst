@@ -2,16 +2,45 @@
 
 <JUCERPROJECT id="pRKSbb" name="binaural-vst" projectType="audioplug" version="1.0.0"
               bundleIdentifier="com.yourcompany.binauralvst" includeBinaryInAppConfig="1"
-              buildVST="1" buildVST3="0" buildAU="0" buildRTAS="0" buildAAX="0"
+              buildVST="0" buildVST3="1" buildAU="0" buildRTAS="0" buildAAX="0"
               pluginName="BinAuralVST" pluginDesc="BinAuralVST" pluginManufacturer="TWoz"
-              pluginManufacturerCode="TWoz" pluginCode="BiAu" pluginChannelConfigs=""
+              pluginManufacturerCode="TWoz" pluginCode="BiAu" pluginChannelConfigs="{2,2}"
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="HrtfBiAuralAU" pluginRTASCategory="" aaxIdentifier="com.yourcompany.HrtfBiAural"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.1.0"
-              pluginIsMidiEffectPlugin="0">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.3"
+              pluginIsMidiEffectPlugin="0" buildAUv3="0">
   <MAINGROUP id="ThT6AB" name="binaural-vst">
     <GROUP id="{692C8829-98B7-F217-6C73-4EA83692BB6A}" name="source">
+      <GROUP id="{7680C8E4-937C-54DB-BA52-F343128989CA}" name="convexhull">
+        <GROUP id="{28D76BBE-B4F7-E42A-FE31-92EB77A1DB46}" name="Structs">
+          <FILE id="I4kg6B" name="Mesh.hpp" compile="0" resource="0" file="../source/convexhull/Structs/Mesh.hpp"/>
+          <FILE id="La8uAP" name="Plane.hpp" compile="0" resource="0" file="../source/convexhull/Structs/Plane.hpp"/>
+          <FILE id="k0ATof" name="Pool.hpp" compile="0" resource="0" file="../source/convexhull/Structs/Pool.hpp"/>
+          <FILE id="GIT8k8" name="Ray.hpp" compile="0" resource="0" file="../source/convexhull/Structs/Ray.hpp"/>
+          <FILE id="CGZTKX" name="Vector3.hpp" compile="0" resource="0" file="../source/convexhull/Structs/Vector3.hpp"/>
+          <FILE id="DpRIHM" name="VertexDataSource.hpp" compile="0" resource="0"
+                file="../source/convexhull/Structs/VertexDataSource.hpp"/>
+        </GROUP>
+        <GROUP id="{72DB4EE4-872D-B165-05DE-F3956FF5500C}" name="Tests">
+          <FILE id="OBGuBd" name="QuickHullTests.cpp" compile="1" resource="0"
+                file="../source/convexhull/Tests/QuickHullTests.cpp"/>
+          <FILE id="vqxQTs" name="QuickHullTests.hpp" compile="0" resource="0"
+                file="../source/convexhull/Tests/QuickHullTests.hpp"/>
+        </GROUP>
+        <FILE id="E4vqTJ" name="ConvexHull.hpp" compile="0" resource="0" file="../source/convexhull/ConvexHull.hpp"/>
+        <FILE id="T1tlOt" name="HalfEdgeMesh.hpp" compile="0" resource="0"
+              file="../source/convexhull/HalfEdgeMesh.hpp"/>
+        <FILE id="ZKLWQ8" name="MathUtils.hpp" compile="0" resource="0" file="../source/convexhull/MathUtils.hpp"/>
+        <FILE id="cgwZEy" name="QuickHull.cpp" compile="1" resource="0" file="../source/convexhull/QuickHull.cpp"/>
+        <FILE id="tBC0q0" name="QuickHull.hpp" compile="0" resource="0" file="../source/convexhull/QuickHull.hpp"/>
+        <FILE id="uJ3Vxh" name="Types.hpp" compile="0" resource="0" file="../source/convexhull/Types.hpp"/>
+      </GROUP>
+      <GROUP id="{41A6C4D6-7D2D-5572-DD55-D2C7D01D006D}" name="images">
+        <FILE id="SjO22P" name="head_side.h" compile="0" resource="0" file="../source/images/head_side.h"/>
+        <FILE id="a02w3q" name="head_top.h" compile="0" resource="0" file="../source/images/head_top.h"/>
+        <FILE id="dvp8ky" name="source_icon.h" compile="0" resource="0" file="../source/images/source_icon.h"/>
+      </GROUP>
       <FILE id="OQ0d3J" name="AudioParameter.cpp" compile="1" resource="0"
             file="../source/AudioParameter.cpp"/>
       <FILE id="nYJYru" name="AudioParameter.h" compile="0" resource="0"
@@ -32,6 +61,10 @@
             file="../source/PluginProcessor.cpp"/>
       <FILE id="BLrgLu" name="PluginProcessor.h" compile="0" resource="0"
             file="../source/PluginProcessor.h"/>
+      <FILE id="Nm9opw" name="QuickHullWrapper.cpp" compile="1" resource="0"
+            file="../source/QuickHullWrapper.cpp"/>
+      <FILE id="rJADcp" name="QuickHullWrapper.h" compile="0" resource="0"
+            file="../source/QuickHullWrapper.h"/>
       <FILE id="S2kZMR" name="Util.h" compile="0" resource="0" file="../source/Util.h"/>
     </GROUP>
   </MAINGROUP>
@@ -63,6 +96,25 @@
         <MODULEPATH id="juce_audio_basics" path="..\..\..\Biblioteki\JUCE\modules"/>
       </MODULEPATHS>
     </VS2013>
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="/SDKs/VST3 SDK" vst3Folder="/SDKs/VST3 SDK">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="binaural-vst"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="binaural-vst"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../modules"/>
+        <MODULEPATH id="juce_events" path="../../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
+        <MODULEPATH id="juce_core" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
