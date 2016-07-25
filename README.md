@@ -8,6 +8,9 @@ Removed the dependencies of triangle++, so now the code is completely portable,
 to compile just update the jucer file set the corrects paths of the Steinberg vst SDK,
 and juce modules. Now compiles on OSX. 
 
+Also VST binary added to dowload. Dowload the whole project as zip and under OSX build there you will find 
+the vst binary.
+
 Original readme:
 
 ![](screenshot.png?raw=true)
